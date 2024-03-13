@@ -1,0 +1,11 @@
+CLSX => A library that allows conditional styling of a component based on its state
+
+Font optimization in NEXT => download all fonts in build time and use them as static assets to reduce network requests
+
+Image optimization in NEXT => lazy loading by default, modern image format (such as webp), resizing based on viewport, etc.
+
+Layout rendering in NEXT => only the page component rerenders, the layout doesnt (similar to how Outlet works in React)
+
+Page optimization in NEXT => split app by route segments, whenever a Link component is found, the code containing the page is preloaded
+
+
