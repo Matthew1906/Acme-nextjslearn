@@ -8,4 +8,10 @@ Layout rendering in NEXT => only the page component rerenders, the layout doesnt
 
 Page optimization in NEXT => split app by route segments, whenever a Link component is found, the code containing the page is preloaded
 
+Data Fetching in NEXT => use React Server Components that supports promises and allows writing server logic in NEXT
+    - Static Rendering => data fetched on build time or revalidation time, good for non-realtime data, cannot use things like cookies (data available on request time)
+    - Dynamic Rendering => data fetched on component render/request, good for real time data / personalized content, used to access information that requires cookies/parameters    
+    - Streaming => a data fetching technique that allows breaking down a route into smaller chunks and stream the data one at a time as they become ready
+        - Use loading.tsx => setup a default loading page when not all data in a route has finished fetching
+        - use React Suspense => putting the data fetching function inside the component and returning a fallback component when the data is still being fetched. Supports separation of concerns.
 
