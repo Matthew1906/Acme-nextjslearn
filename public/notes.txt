@@ -15,3 +15,9 @@ Data Fetching in NEXT => use React Server Components that supports promises and 
         - Use loading.tsx => setup a default loading page when not all data in a route has finished fetching
         - use React Suspense => putting the data fetching function inside the component and returning a fallback component when the data is still being fetched. Supports separation of concerns.
 
+Search and Pagination in NEXT => use hooks (usePathName to get current path, useRouter to update route, and useSearchParams to manage parameters)
+
+Debouncing => limit frequency of function calls, powerful in search functions, can use 'use-debounce' package
+
+Error Handling => use try-catch on server actions, use error.tsx to store a catch-all error. For 404 Error, we can add another page using notFound() and not-found.txt
+
