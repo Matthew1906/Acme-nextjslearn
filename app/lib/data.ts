@@ -14,7 +14,6 @@ import { unstable_noStore as noStore } from 'next/cache';
 export async function fetchRevenue() {
   // Add noStore() here to prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
-  noStore();
 
   try {
     // Artificially delay a response for demo purposes.
@@ -22,7 +21,7 @@ export async function fetchRevenue() {
 
     // console.log('Fetching revenue data...');
     // await new Promise((resolve) => setTimeout(resolve, 3000));
-
+    noStore();
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
     // console.log('Data fetch completed after 3 seconds.');
@@ -96,10 +95,9 @@ export async function fetchFilteredInvoices(
   query: string,
   currentPage: number,
 ) {
-  noStore();
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
-
   try {
+    noStore();
     const invoices = await sql<InvoicesTable>`
       SELECT
         invoices.id,
@@ -129,8 +127,8 @@ export async function fetchFilteredInvoices(
 }
 
 export async function fetchInvoicesPages(query: string) {
-  noStore();
   try {
+    noStore();
     const count = await sql`SELECT COUNT(*)
     FROM invoices
     JOIN customers ON invoices.customer_id = customers.id
@@ -151,8 +149,8 @@ export async function fetchInvoicesPages(query: string) {
 }
 
 export async function fetchInvoiceById(id: string) {
-  noStore();
   try {
+    noStore();
     const data = await sql<InvoiceForm>`
       SELECT
         invoices.id,
@@ -177,8 +175,8 @@ export async function fetchInvoiceById(id: string) {
 }
 
 export async function fetchCustomers() {
-  noStore();
   try {
+    noStore();
     const data = await sql<CustomerField>`
       SELECT
         id,
@@ -196,8 +194,8 @@ export async function fetchCustomers() {
 }
 
 export async function fetchFilteredCustomers(query: string) {
-  noStore();
   try {
+    noStore();
     const data = await sql<CustomersTableType>`
 		SELECT
 		  customers.id,
